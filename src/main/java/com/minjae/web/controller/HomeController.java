@@ -13,7 +13,7 @@ public class HomeController implements Controller {
 		// TODO Auto-generated method stub
 		ModelAndView nv = new ModelAndView();
 		nv.addObject("data", "hello");
-		nv.setViewName("index");
+		nv.setViewName("root.index");
 		return nv;
 	}
 
