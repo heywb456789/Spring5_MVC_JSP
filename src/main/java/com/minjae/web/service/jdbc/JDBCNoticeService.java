@@ -16,10 +16,10 @@ import com.minjae.web.service.NoticeService;
 import javax.sql.DataSource;
 
 public class JDBCNoticeService implements NoticeService {
-	private String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
-	private String uid = "NEWLEC";
-	private String pwd = "11111";
-	private String driver = "oracle.jdbc.driver.OracleDriver";
+//	private String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
+//	private String uid = "NEWLEC";
+//	private String pwd = "11111";
+//	private String driver = "oracle.jdbc.driver.OracleDriver";
 
 	private DataSource dataSource;
 	//setter 주입

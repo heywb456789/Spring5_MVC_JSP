@@ -7,17 +7,17 @@
         http://www.springframework.org/schema/mvc
         https://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <bean id="/index" class="com.minjae.web.controller.HomeController">  
+    <bean id="/index" class="com.minjae.web.controller.HomeController">
         <!-- collaborators and configuration for this bean go here -->
     </bean>
-    <bean id="/notice/list" class="com.minjae.web.controller.notice.ListController">  
+    <bean id="/notice/list" class="com.minjae.web.controller.notice.ListController">
         <!-- collaborators and configuration for this bean go here -->
         <property name="noticeService" ref="noticeService"></property>
     </bean>
-    <bean id="/notice/detail" class="com.minjae.web.controller.notice.DetailController">  
+    <bean id="/notice/detail" class="com.minjae.web.controller.notice.DetailController">
         <!-- collaborators and configuration for this bean go here -->
     </bean>
-    
+
     <bean
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass"
@@ -29,13 +29,13 @@
 		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<property name="definitions" value="/WEB-INF/tiles.xml" />
 	</bean>
-    
+
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/"></property>
 		<property name="suffix" value=".jsp"></property>
 		<property name="order" value="2" />
 	</bean>
-	
+
 	<mvc:resources location="/static/" mapping="/**"></mvc:resources>
 
 	<!-- DataSource DI -->
