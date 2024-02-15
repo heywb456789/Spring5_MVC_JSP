@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xmlns:context="http://www.springframework.org/schema/context"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/mvc
-        https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/mvc/spring-context.xsd">
+	<!--annotaion적용을 위해 주입-->
+	<context:annotation-config></context:annotation-config>
 
 	<bean id="/index" class="com.minjae.web.controller.HomeController">
 		<!-- collaborators and configuration for this bean go here -->
 	</bean>
 	<bean id="/notice/list" class="com.minjae.web.controller.notice.ListController">
 		<!-- collaborators and configuration for this bean go here -->
-		<property name="noticeService" ref="noticeService"></property>
+		<!--annotaion 적용을 위해 주석 -->
+		<!--<property name="noticeService" ref="noticeService"></property>-->
 	</bean>
 	<bean id="/notice/detail" class="com.minjae.web.controller.notice.DetailController">
 		<!-- collaborators and configuration for this bean go here -->

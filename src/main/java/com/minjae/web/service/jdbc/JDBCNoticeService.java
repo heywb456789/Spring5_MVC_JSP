@@ -12,6 +12,7 @@ import java.util.List;
 
 import com.minjae.web.entity.Notice;
 import com.minjae.web.service.NoticeService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.sql.DataSource;
 
@@ -21,11 +22,12 @@ public class JDBCNoticeService implements NoticeService {
 //	private String pwd = "11111";
 //	private String driver = "oracle.jdbc.driver.OracleDriver";
 
+	@Autowired
 	private DataSource dataSource;
 	//setter 주입
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
-	}
+//	public void setDataSource(DataSource dataSource) {
+//		this.dataSource = dataSource;
+//	}
 
 	public List<Notice> getList(int page, String field, String query) throws ClassNotFoundException, SQLException{
 		
