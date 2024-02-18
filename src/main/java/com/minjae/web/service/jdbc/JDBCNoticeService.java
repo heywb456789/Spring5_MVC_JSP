@@ -1,7 +1,6 @@
 package com.minjae.web.service.jdbc;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,9 +12,11 @@ import java.util.List;
 import com.minjae.web.entity.Notice;
 import com.minjae.web.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
 
+@Service
 public class JDBCNoticeService implements NoticeService {
 //	private String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
 //	private String uid = "NEWLEC";
@@ -24,6 +25,7 @@ public class JDBCNoticeService implements NoticeService {
 
 	@Autowired
 	private DataSource dataSource;
+	
 	//setter 주입
 //	public void setDataSource(DataSource dataSource) {
 //		this.dataSource = dataSource;

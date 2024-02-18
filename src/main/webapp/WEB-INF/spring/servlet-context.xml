@@ -1,38 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	   xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:context="http://www.springframework.org/schema/context"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/mvc
         https://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/context
-        https://www.springframework.org/schema/mvc/spring-context.xsd">
+        https://www.springframework.org/schema/context/spring-context.xsd" >
 	<!--annotaion적용을 위해 주입-->
-	<context:annotation-config></context:annotation-config>
+<!--	<context:annotation-config></context:annotation-config>-->
+	<context:component-scan base-package="com.minjae.web.controller "/>
 
-	<bean id="/index" class="com.minjae.web.controller.HomeController">
-		<!-- collaborators and configuration for this bean go here -->
-	</bean>
-	<bean id="/notice/list" class="com.minjae.web.controller.notice.ListController">
+	<!--<bean id="/index" class="com.minjae.web.controller.HomeController">
+	</bean>-->
+<!--	<bean id="/notice/list" class="com.minjae.web.controller.notice.ListController">-->
 		<!-- collaborators and configuration for this bean go here -->
 		<!--annotaion 적용을 위해 주석 -->
 		<!--<property name="noticeService" ref="noticeService"></property>-->
-	</bean>
-	<bean id="/notice/detail" class="com.minjae.web.controller.notice.DetailController">
+<!--	</bean>-->
+<!--	<bean id="/notice/detail" class="com.minjae.web.controller.notice.DetailController">-->
 		<!-- collaborators and configuration for this bean go here -->
-	</bean>
+<!--	</bean>-->
 
-	<bean
-			class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass"
 				  value="org.springframework.web.servlet.view.tiles3.TilesView" />
 		<property name="order" value="1" />
 	</bean>
 
-	<bean
-			class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+	<bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<property name="definitions" value="/WEB-INF/tiles.xml" />
 	</bean>
 
@@ -42,7 +40,20 @@
 		<property name="order" value="2" />
 	</bean>
 
-	<mvc:resources location="/static/" mapping="/**"></mvc:resources>
+	<mvc:resources location="/static/" mapping="/**"/>
+
+	<!--위에 컨텍스트 설정으로 메모리에 올리지만 아래 코드를 적어야지만 매핑이 된다.-->
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
 
 
 </beans>
