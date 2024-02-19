@@ -26,31 +26,32 @@ public class NoticeController {
     @RequestMapping("/reg")
     @ResponseBody
     public String reg(String title, String content, String category,
-                      String[] foods, MultipartFile file, HttpServletRequest request){
+                      String[] foods, MultipartFile[] files, HttpServletRequest request){
+        for(MultipartFile file : files) {
+            String fileName = file.getOriginalFilename();
+            long size = file.getSize();
 
-        String fileName = file.getOriginalFilename();
-        long size = file.getSize();
-
-        System.out.println("fileName : "+fileName +"size : "+ size);
+            System.out.println("fileName : " + fileName + "size : " + size);
 
 //        ServletContext ctx = request.getServletContext();
 
-        String webPath = "/static/upload";
-        String realPath = ctx.getRealPath(webPath);
+            String webPath = "/static/upload";
+            String realPath = ctx.getRealPath(webPath);
 
-        //경로에 dir 존재하는지
-        File savePath = new File(realPath);
-        if(savePath.exists()){
-            savePath.mkdirs();
-        }
+            //경로에 dir 존재하는지
+            File savePath = new File(realPath);
+            if (!savePath.exists()) {
+                savePath.mkdirs();
+            }
 
-        realPath += File.separator + fileName;
-        File saveFile = new File(realPath);
+            realPath += File.separator + fileName;
+            File saveFile = new File(realPath);
 
-        try {
-            file.transferTo(saveFile);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            try {
+                file.transferTo(saveFile);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         return String.format("title : %s , content : %s , cate : %s", title, content, category);
