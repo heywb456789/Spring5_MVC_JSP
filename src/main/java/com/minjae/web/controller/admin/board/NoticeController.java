@@ -2,8 +2,7 @@ package com.minjae.web.controller.admin.board;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
@@ -20,11 +19,19 @@ public class NoticeController {
 
     @RequestMapping("/list")
     public String list(){
-        return "";
+        return "admin.board.notice.list";
     }
 
-    @RequestMapping("/reg")
-    @ResponseBody
+//    @RequestMapping(value = "/reg", method = RequestMethod.GET)// 3.x 버전
+    @GetMapping("/reg") //3.x 이후
+//    @ResponseBody
+    public String reg() {
+        return "admin.board.notice.reg";
+    }
+
+//    @RequestMapping(value = "/reg", method = RequestMethod.POST) // 3.x 버전
+//    @ResponseBody
+    @PostMapping("/reg")
     public String reg(String title, String content, String category,
                       String[] foods, MultipartFile[] files, HttpServletRequest request){
         for(MultipartFile file : files) {
@@ -54,17 +61,18 @@ public class NoticeController {
             }
         }
 
-        return String.format("title : %s , content : %s , cate : %s", title, content, category);
+//        return String.format("title : %s , content : %s , cate : %s", title, content, category);
+        return "admin.board.notice.list";
     }
 
     @RequestMapping("/edit")
     public String edit(){
-        return "";
+        return "admin.board.notice.edit";
     }
 
     @RequestMapping("/delete")
     public String delete(){
-        return "";
+        return "admin.board.notice.list";
     }
 
 }
