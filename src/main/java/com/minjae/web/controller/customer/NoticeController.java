@@ -20,7 +20,7 @@ public class NoticeController {
     private NoticeService noticeService;
 
     @RequestMapping("/list")
-    public String list(@RequestParam("page")String page){
+    public String list(@RequestParam(name = "page" , defaultValue = "1")String page){
 
 //        try {
 //            List<Notice> list = noticeService.getList(1,"TITLE","");

@@ -146,7 +146,7 @@
                     </ul>
                 </div>
 
-                <form action="reg" method="post" >
+                <form method="post">
                     <div class="margin-top first">
                         <h3 class="hidden">공지사항 입력</h3>
                         <table class="table">
@@ -155,6 +155,35 @@
                                     <th>제목</th>
                                     <td class="text-align-left text-indent text-strong text-orange" colspan="3">
                                         <input type="text" name="title" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>제목</th>
+                                    <td class="text-align-left text-indent text-strong text-orange" colspan="3">
+                                        <select name="category">
+                                            <option>카테1</option>
+                                            <option>카테2</option>
+                                            <option>카테3</option>
+                                            <option>카테4</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>좋아하는 음식</th>
+                                    <td class="text-align-left text-indent text-strong text-orange" colspan="3">
+                                        <input type ="checkbox" name="foods" value="1" id="ch1"><label for ="ch1">자장면</label>
+                                        <input type ="checkbox" name="foods" value="2" id="ch2"><label for ="ch2">짬뽕</label>
+                                        <input type ="checkbox" name="foods" value="3" id="ch3"><label for ="ch3">탕수육</label>
+                                        <input type ="checkbox" name="foods" value="4" id="ch4"><label for ="ch4">팔보채</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>가장 좋아하는 음식</th>
+                                    <td class="text-align-left text-indent text-strong text-orange" colspan="3">
+                                        <input type ="radio" name="most" value="1" id="rd1"><label for ="ch1">자장면</label>
+                                        <input type ="radio" name="most" value="2" id="rd2"><label for ="ch2">짬뽕</label>
+                                        <input type ="radio" name="most" value="3" id="rd3"><label for ="ch3">탕수육</label>
+                                        <input type ="radio" name="most" value="4" id="rd4"><label for ="ch4">팔보채</label>
                                     </td>
                                 </tr>
                                 <tr>
